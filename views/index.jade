@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+ul
+  each val in messages
+    p = `${val.name}: ${val.message}`
+    li= `${val.date | date: 'dddd, MMMM Do YYYY, h:mm:ss a'}`
