@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    form(method="POST", action="/new")
+        h2= title
+        input(type="text", name="messageUser", placeholder="author’s name")
+        input(type="text", name="messageText", placeholder="message text")
+        button(type="submit") Send
+
+

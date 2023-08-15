@@ -16,7 +16,19 @@ const messages = [
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Main page', messages: messages });
+});
+
+router.get('/new', function(req, res, next) {
+  res.render('form', { title: 'Form'});
+});
+
+router.post('/new', function(req, res, next) {
+  const { messageText, messageUser } = req.body;
+  if (messageText && messageUser) {
+    messages.push({text: messageText, user: messageUser, added: new Date()});
+  }
+  res.redirect('/')
 });
 
 module.exports = router;

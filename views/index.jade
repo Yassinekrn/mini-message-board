@@ -4,7 +4,10 @@ block content
   h1= title
   p Welcome to #{title}
 
-ul
-  each val in messages
-    p = `${val.name}: ${val.message}`
-    li= `${val.date | date: 'dddd, MMMM Do YYYY, h:mm:ss a'}`
+  ul
+    each val in messages
+      li
+        p= `${val.user} : ${val.text}`
+        p= `${val.added}`
+
+  button(onclick="window.location.href='/new'") Add a message to the board
